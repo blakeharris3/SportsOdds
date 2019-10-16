@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Generate a future simulation based off previous statistics.</h2>
+
+<button onclick="getYards()">Yards Inputed</button>
+<button onclick="randomNum()">Generate</button>
+<button onclick="randomNumTD()">Generate TD</button>
+
+<p id="passing1"></p>
+<p id="passing2"></p>
+<p id="passing3"></p>
+<p id="passingTD1"></p>
+<p id="passingTD2"></p>
+<p id="passingTD3"></p>
+<p2 id="generated"></p2>
+<p2 id="generatedTD"></p2>
+
+<script>
+var gameOne = prompt("Enter game 1 passing yards ", "");
+var gameTwo = prompt("Enter game 2 passing yards ", "");
+var gameThree = prompt("Enter game 3 passing yards ", "");
+  function getYards() {
+  if (gameOne != null) {
+    document.getElementById("passing1").innerHTML =
+    "Game 1: " + gameOne + " yards";
+  }
+  if (gameTwo != null) {
+    document.getElementById("passing2").innerHTML =
+    "Game 2: " + gameTwo + " yards";
+  }
+  if (gameThree != null) {
+    document.getElementById("passing3").innerHTML =
+    "Game 3: " + gameThree + " yards";
+  }
+}
+var parseNumbers = (parseInt(gameOne) + parseInt(gameTwo) + parseInt(gameThree))
+var averageNumbers = parseNumbers / 3
+var floorRandom = averageNumbers - 50 
+function randomNum() {
+  var random = Math.floor((Math.random() * 100) + floorRandom);
+  document.getElementById("generated").innerHTML = 
+  "Passing yards: " + random;
+}
+
+
+function randomNumTD() {
+  var gameOneTD = prompt("Enter game 1 passing touchdowns ", "");
+  var gameTwoTD = prompt("Enter game 2 passing touchdowns ", "");
+  var gameThreeTD= prompt("Enter game 3 passing touchdowns ", "");
+  var parseNumbersTD = (parseInt(gameOneTD) + parseInt(gameTwoTD) + parseInt(gameThreeTD))
+  var averageNumbersTD = parseNumbersTD / 3
+  var floorRandomTD = averageNumbersTD - 1 
+  var randomTD = Math.floor((Math.random() * 1) + floorRandomTD);
+  document.getElementById("generatedTD").innerHTML = 
+  "Passing Touchdowns: " + randomTD;
+}
+
+</script>
+
+</body>
+</html>
